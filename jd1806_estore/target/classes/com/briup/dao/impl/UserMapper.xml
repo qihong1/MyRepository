@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.briup.dao.IUserDao">
+  	 <select id="findUserByName" parameterType="String" resultType="User">
+  	 	select * from s_user where username=#{username}
+  	 </select>
+  	 <insert id="saveUser" parameterType="User">
+  	 	insert into s_user values(seq.nextval,#{username},#{password},#{zip},
+  	 	#{address},#{phone},#{email},#{dob})
+  	 </insert>
+  	 <update id="updateUser">
+  	 	update s_user set password=#{password},zip=#{zip},
+  	 	address=#{address},phone=#{phone},email=#{email} 
+  	 	where username=#{username}
+  	 </update>
+  </mapper>
